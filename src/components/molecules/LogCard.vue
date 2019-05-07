@@ -12,10 +12,10 @@
           {{title}}
         </h3>
         <b-card-text class="jf-card__text" v-if="tags.indexOf('human') > -1">
-          written by <span>{{author}}</span> - <span>{{time}}</span> on <span>{{date}}</span>
+          <span class="jf-card__text--secondary">written by </span><span class="jf-card__text--primary">{{author}}</span><span class="jf-card__text--secondary"> - at </span><span class="jf-card__text--primary">{{time}}</span><span class="jf-card__text--secondary"> on </span><span class="jf-card__text--primary">{{date}}</span>
         </b-card-text>
         <b-card-text class="jf-card__text" v-if="tags.indexOf('process') > -1">
-          <span>{{time}}</span> on <span>{{date}}</span>
+          <span class="jf-card__text--secondary">at </span><span class="jf-card__text--primary">{{time}}</span><span class="jf-card__text--secondary"> on </span><span class="jf-card__text--primary">{{date}}</span>
         </b-card-text>
       </div>
       <div class="jf-card__tag-holder">

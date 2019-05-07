@@ -1,3 +1,6 @@
 .jf-tag {
-  margin: 0 .25rem;
+  margin: .25rem;
+  @include media-breakpoint-up(md) {
+    margin: 0 .25rem;
+  }
 }

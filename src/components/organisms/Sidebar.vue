@@ -11,7 +11,7 @@
     </div>
     <nav class="jf-nav jf-nav__main">
       <ul>
-        <li><router-link to="/" exact><font-awesome-icon :icon="['fas', 'book']" />Logs</router-link></li>
+        <li><router-link to="/logs"><font-awesome-icon :icon="['fas', 'book']" />Logs</router-link></li>
         <li><router-link to="/runs"><font-awesome-icon :icon="['fab', 'buffer']" />Runs</router-link></li>
         <li><router-link to="/overview"><font-awesome-icon :icon="['fas', 'eye']" />Subsystems overview</router-link></li>
       </ul>

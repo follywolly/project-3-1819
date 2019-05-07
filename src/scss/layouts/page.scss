@@ -55,5 +55,23 @@
         }
       }
     }
+    .jf-add-log {
+      .modal-header, .modal-footer{
+        background-color: var(--black);
+        border-color: var(--black);
+      }
+      .modal-body {
+        background-color: var(--dark-gray);
+        border-color: var(--black);
+        input, select, textarea, .custom-file-label {
+          background-color: var(--gray);
+          color: var(--light);
+          border-color: var(--dark-gray);
+        }
+      }
+      &__body {
+        background-color: var(--black);
+      }
+    }
   }
 }

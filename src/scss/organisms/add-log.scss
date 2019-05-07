@@ -1,0 +1,20 @@
+.jf-add-log {
+  .modal-body {
+    padding: 0;
+  }
+  .modal-title {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  .d-block {
+    font-weight: bold;
+  }
+  &__header {
+    padding: 2rem 1.5rem;
+  }
+  &__body {
+    padding: 2rem 1.5rem;
+    background-color: var(--light-gray);
+
+  }
+}

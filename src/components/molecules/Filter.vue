@@ -11,6 +11,9 @@
           <b-dropdown-item @click="sort_value = 'alphabetical'" :active="sort_value === 'alphabetical' ? true : false">title by alphabet</b-dropdown-item>
         </b-dropdown>
       </div>
+      <div class="jf-filter__filter-group">
+
+      </div>
     </form>
   </div>
 </template>
