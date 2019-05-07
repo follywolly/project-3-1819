@@ -1,0 +1,23 @@
+@import 'node_modules/bootstrap/scss/bootstrap';
+@import 'node_modules/bootstrap-vue/src/index.scss';
+
+// config
+@import 'config/variables';
+@import 'config/animations';
+
+// layouts
+@import 'layouts/default';
+@import 'layouts/page';
+
+// pages
+
+// organisms
+@import 'organisms/sidebar';
+
+// molecules
+@import 'molecules/card';
+@import 'molecules/search';
+@import 'molecules/filter';
+
+// atoms
+@import 'atoms/tag';

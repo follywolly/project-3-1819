@@ -1,0 +1,46 @@
+.jf-card {
+  max-width: 40rem;
+  background: var(--white);
+  transition: transform 1s;
+  &__link {
+    color: var(--dark);
+    display: flex;
+    align-items: center;
+    transition: opacity .3s;
+    &:visited, &:active {
+      color: var(--dark);
+    }
+    &:hover {
+      text-decoration: none;
+      opacity: .7;
+      color: var(--dark);
+    }
+  }
+  &__id {
+    padding: 0 .5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  &__content {
+    overflow: hidden;
+    padding: 0 1rem;
+  }
+  &__title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    white-space: nowrap;
+  }
+  &__text {
+    font-size: .825rem;
+    color: var(--gray);
+    span {
+      color: var(--dark);
+      font-weight: bold;
+    }
+  }
+  &__tag-holder {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+  }
+}

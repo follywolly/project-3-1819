@@ -1,0 +1,59 @@
+.jf {
+  &-content {
+    background-color: var(--light-gray);
+    padding-left: 16.5rem;
+    padding-top: 6rem;
+    transition: padding .3s, background .3s, color .3s;
+    min-height: 100vh;
+    padding-bottom: 6rem;
+    &__header {
+      background-color: var(--color-white);
+    }
+    &__title-holder {
+      display: flex;
+      align-items: center;
+      margin-bottom: 2rem;
+
+    }
+    &__title {
+      font-weight: bold;
+      margin: 0;
+      margin-right: 1rem;
+    }
+    &__subtitle {
+      font-size: .875rem;
+      color: var(--gray);
+      font-weight: normal;
+      margin: 0;
+      margin-top: .5rem;
+
+    }
+  }
+  &-sidebar {
+    &.closed + .jf-content {
+      padding-left: 3rem;
+    }
+  }
+}
+
+.dark {
+  --black: #000;
+  .jf-content {
+    background-color: var(--dark-gray);
+    color: var(--light);
+    &__header {
+      background-color: var(--dark);
+    }
+    .jf-card {
+      background: var(--black);
+      &__link {
+        color: var(--light);
+      }
+      &__text {
+        span {
+          color: var(--light-gray);
+        }
+      }
+    }
+  }
+}

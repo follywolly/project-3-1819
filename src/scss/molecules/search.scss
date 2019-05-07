@@ -1,0 +1,30 @@
+.jf-search {
+  margin: 2rem auto;
+  &__form {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--gray);
+    width: 100%;
+    position: relative;
+  }
+  &__label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    transition: scale .3s, transform .3s;
+    transform-origin: left;
+  }
+  &__input {
+    width: 100%;
+    background: 0;
+    border: 0;
+    appearance: none;
+    border-bottom: 2px solid var(--gray);
+    max-width: 40rem;
+    &:focus + .jf-search__label,
+    &.has-value + .jf-search__label {
+      transform: translateY(-2.5rem) scale(0.5);
+    }
+  }
+}

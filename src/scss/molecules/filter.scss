@@ -1,0 +1,16 @@
+.jf-filter {
+  margin: 1rem 0;
+  width: 100%;
+  max-width: 40rem;
+  &__sort-group {
+    align-items: center;
+    display: flex;
+  }
+  &__sort-btn {
+    margin-left: 1rem;
+    display: block;
+    button {
+      font-weight: bold;
+    }
+  }
+}
