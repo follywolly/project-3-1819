@@ -1,13 +1,9 @@
 <template>
   <div id="app" :class="dark_mode ? 'dark' : ''">
     <Sidebar id="sidebar"/>
-    <b-container fluid class="jf-content">
-      <b-row>
-        <b-col>
-          <router-view id="main"></router-view>
-        </b-col>
-      </b-row>
-    </b-container>
+    <main id="main" class="jf-content" >
+      <router-view></router-view>
+    </main>
   </div>
 </template>
 

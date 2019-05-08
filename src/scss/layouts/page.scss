@@ -1,13 +1,17 @@
 .jf {
   &-content {
     background-color: var(--light-gray);
-    padding-left: 16.5rem;
-    padding-top: 6rem;
+    padding-left: 15rem;
     transition: padding .3s, background .3s, color .3s;
     min-height: 100vh;
-    padding-bottom: 6rem;
+    &__inner-container {
+      padding-left: 3rem;
+      padding-right: 3rem;
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
     &__header {
-      background-color: var(--color-white);
+      background-color: var(--white);
     }
     &__title-holder {
       display: flex;

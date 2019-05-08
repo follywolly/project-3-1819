@@ -1,5 +1,5 @@
 <template>
-  <b-container>
+  <b-container class="jf-content__inner-container" fluid>
     <b-row>
       <b-col>
         <div class="jf-content__title-holder">
@@ -65,7 +65,7 @@ export default {
   },
   computed: {
     cards() {
-      const data = this.$store.getters.logs
+      const data = this.$store.getters.logs()
 
       // no searchwords = no filtered list
       if (this.search.trim() === '') {

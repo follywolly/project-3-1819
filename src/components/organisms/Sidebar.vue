@@ -1,5 +1,5 @@
 <template>
-  <div class="jf-sidebar" :class="this.closed ? 'closed' : ''">
+  <header class="jf-sidebar" :class="this.closed ? 'closed' : ''">
     <div class="jf-header">
       <div class="jf-header__logo">
 
@@ -24,10 +24,10 @@
         <li><font-awesome-icon :icon="['fas', 'user-circle']" />Account</li>
       </ul>
     </nav>
-    <footer class="jf-footer">
+    <div class="jf-footer">
       Jiskefet v0.1.0
-    </footer>
-  </div>
+    </div>
+  </header>
 </template>
 <script>
 export default {

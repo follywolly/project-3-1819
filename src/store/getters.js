@@ -1,16 +1,13 @@
 const getters = {
-  dark_mode(state) {
-    return state.dark_mode
+  dark_mode: state => state.dark_mode,
+  username: state => state.user.name,
+  logs: state => id => {
+    if (!id) {
+      return state.logs
+    }
+    return state.logs.find(log => log.id === id)
   },
-  username(state) {
-    return state.user.name
-  },
-  logs(state) {
-    return state.logs
-  },
-  current_log_id(state) {
-    return state.current_log_id
-  }
+  current_log_id: state => state.current_log_id
 }
 
 export default getters
