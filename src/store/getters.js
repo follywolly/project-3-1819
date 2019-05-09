@@ -5,7 +5,11 @@ const getters = {
     if (!id) {
       return state.logs
     }
-    return state.logs.find(log => log.id === id)
+    const found = state.logs.find(log => log.id === id)
+    if (found) {
+      return found
+    }
+    return {title: 'Error: Log not found'}
   },
   current_log_id: state => state.current_log_id
 }

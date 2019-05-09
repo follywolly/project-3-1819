@@ -22,11 +22,11 @@ import './scss/main.scss'
 
 // === Fontawesome ===
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faBook, faEye, faSun, faUserCircle, faChevronRight, faMoon } from '@fortawesome/free-solid-svg-icons'
+import { faBook, faEye, faSun, faUserCircle, faChevronRight, faMoon, faPlusCircle, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { faBuffer } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-library.add(faBook, faBuffer, faEye, faSun, faUserCircle, faChevronRight, faMoon)
+library.add(faBook, faBuffer, faEye, faSun, faUserCircle, faChevronRight, faMoon, faPlusCircle, faTrash)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 

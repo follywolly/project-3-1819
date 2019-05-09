@@ -2,24 +2,24 @@
   <b-container class="jf-content__inner-container" fluid>
     <b-row>
       <b-col>
-        <div class="jf-content__title-holder">
-          <h2 class="jf-content__title">Logs</h2>
-          <h3 class="jf-content__subtitle">- {{cards.length}} logs</h3>
+        <div class="jf-content__page-header">
+          <div class="jf-content__title-holder">
+            <h2 class="jf-content__title">Logs</h2>
+            <h3 class="jf-content__subtitle">- {{cards.length}} logs</h3>
+          </div>
+          <b-button class="jf-add-log__button jf-btn" variant="primary" v-b-modal="'jf-add-log'">Add log</b-button>
+          <AddLog modal="jf-add-log"></AddLog>
         </div>
       </b-col>
+    </b-row>
+    <b-row>
       <b-col>
-        <b-button variant="primary" v-b-modal="'jf-add-log'">Add log</b-button>
-        <AddLog modal="jf-add-log"></AddLog>
+        <Search v-on:changed="searchList" />
       </b-col>
     </b-row>
     <b-row>
       <b-col>
-        <Search v-on:changed="logValue" />
-      </b-col>
-    </b-row>
-    <b-row>
-      <b-col>
-        <ListFilter v-on:sort_changed="sortValue" />
+        <ListFilter v-on:sort_changed="sortList" v-on:filters_changed="filterList" />
       </b-col>
     </b-row>
     <b-row>
@@ -38,7 +38,9 @@
         </transition-group>
       </b-col>
       <b-col v-else>
-        No matches found!
+        <b-card class="jf-card">
+          No matches found!
+        </b-card>
       </b-col>
     </b-row>
 
@@ -46,9 +48,9 @@
 </template>
 <script>
 import LogCard from '../molecules/LogCard.vue'
-import Search from '../molecules/Search.vue'
-import ListFilter from '../molecules/Filter.vue'
-import AddLog from '../organisms/AddLog.vue'
+import Search from '../organisms/Search.vue'
+import ListFilter from '../organisms/Filter.vue'
+import AddLog from '../molecules/AddLog.vue'
 export default {
   name: 'logs',
   components: {
@@ -60,7 +62,8 @@ export default {
   data() {
     return {
       search: '',
-      sort: 'latest'
+      sort: 'latest',
+      filters: {type: [], entity: []}
     }
   },
   computed: {
@@ -70,6 +73,7 @@ export default {
       // no searchwords = no filtered list
       if (this.search.trim() === '') {
         return data
+          .filter(this.filterer)
           .sort(this.sorter)
       }
 
@@ -90,10 +94,20 @@ export default {
           // the more search words you have, the more matching string values a log needs to have to show up
           return searchwords.length === matches.length
         })
+        .filter(this.filterer)
         .sort(this.sorter)
     }
   },
   methods: {
+    filterer(obj) {
+      const filters = Object.values(this.filters)
+      const type = filters[0]
+      const entity = filters[1]
+
+      const typeInFilters = (type.length === 0 || type.includes(obj.tags[0]))
+      const entityInFilters = (entity.length === 0 || entity.includes(obj.tags[1]))
+      return typeInFilters && entityInFilters
+    },
     sorter(a, b) {
       if (this.sort === 'latest' || this.sort === 'oldest') {
 
@@ -150,11 +164,14 @@ export default {
       // if any string value of a log matches any of the search words, return true
       return string.includes(searchword.trim().toLowerCase())
     },
-    logValue(val) {
+    searchList(val) {
       this.search = val
     },
-    sortValue(val) {
+    sortList(val) {
       this.sort = val
+    },
+    filterList(filters) {
+      this.filters = filters
     }
   }
 }

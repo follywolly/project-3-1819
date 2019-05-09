@@ -118,13 +118,29 @@ export default {
       const date = `${this.format(today.getDate())}/${this.format(today.getMonth() + 1)}/${today.getFullYear()}`
       const time = `${this.format(today.getHours())}:${this.format(today.getMinutes())}`
 
-      // create a new log
-      this.$store.commit('add_log', {...this.log, title, author, date, time, id: this.log_id})
-
+      const id = String(this.log_id)
       this.$nextTick(() => {
         this.$store.commit('increment_id')
         this.$refs.modal.hide()
         this.log = this.template
+      })
+
+      this.makeToast('Adding log to database...', 'Process', 'default')
+
+      setTimeout(() => {
+        // create a new log
+        this.$store.commit('add_log', {...this.log, title, author, date, time, id})
+
+        this.makeToast('Added log to database!', 'Process', 'success')
+      }, 3300)
+    },
+    makeToast(text, title, variant, append = false) {
+      this.$bvToast.toast(text, {
+        title,
+        variant,
+        autoHideDelay: 3000,
+        appendToast: append,
+        solid: true
       })
     },
     saveLog() {

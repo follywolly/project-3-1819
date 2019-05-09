@@ -4,6 +4,7 @@
 // config
 @import 'config/variables';
 @import 'config/animations';
+@import 'config/resets';
 
 // layouts
 @import 'layouts/default';
@@ -14,12 +15,14 @@
 
 // organisms
 @import 'organisms/sidebar';
-@import 'organisms/add-log';
+@import 'organisms/search';
+@import 'organisms/filter';
 
 // molecules
 @import 'molecules/card';
-@import 'molecules/search';
-@import 'molecules/filter';
+@import 'molecules/add-log';
+@import 'molecules/filter-menu';
+
 
 // atoms
 @import 'atoms/tag';

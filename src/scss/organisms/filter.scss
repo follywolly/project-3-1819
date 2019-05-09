@@ -1,0 +1,77 @@
+.jf-filter {
+  margin: 1rem 0;
+  width: 100%;
+  max-width: 40rem;
+  &__form {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  &__sort-group {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 1rem;
+  }
+  &__sort-btn {
+    margin-left: 1rem;
+    display: block;
+    button {
+      font-weight: bold;
+    }
+  }
+  &__description {
+    white-space: nowrap;
+    color: var(--gray);
+  }
+  &__filter-group {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    flex: 1;
+  }
+  &__reset-filters-btn {
+    font-weight: bold;
+    color: var(--gray);
+    border-bottom: 2px solid var(--gray);
+    margin-left: auto;
+  }
+  &__filter-btn {
+    margin: 0 .25rem;
+    padding: 0;
+    border-radius: 50%;
+    color: var(--primary);
+    font-size: 24px;
+    height: 24px;
+    border: none;
+    svg {
+      vertical-align:top;
+    }
+  }
+  &__filter-badge {
+    padding: 0;
+    padding-left: .5rem;
+    display: block;
+    background-color: var(--light);
+    color: var(--dark);
+    .btn {
+      font-size: 1em;
+      margin-left: .5rem;
+      padding: .15rem .5rem;
+      svg {
+        pointer-events: none;
+      }
+    }
+  }
+  &__filter-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1rem;
+    li {
+      margin: .5rem;
+    }
+  }
+}

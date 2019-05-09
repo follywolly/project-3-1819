@@ -5,24 +5,46 @@
     transition: padding .3s, background .3s, color .3s;
     min-height: 100vh;
     &__inner-container {
-      padding-left: 3rem;
-      padding-right: 3rem;
-      padding-top: 6rem;
-      padding-bottom: 6rem;
+      padding: 6rem 2rem;
+      @include media-breakpoint-up(md) {
+        padding: 6rem 4rem;
+      }
+      @include media-breakpoint-up(lg) {
+        padding: 6rem;
+      }
+
+    }
+    &__page-header {
+      max-width: 40rem;
+      display: flex;
+      align-items: flex-start;
+      .jf-add-log__button {
+        margin-left: auto;
+      }
     }
     &__header {
       background-color: var(--white);
+    }
+    &__header-holder {
+      display: flex;
+      justify-content: space-between;
     }
     &__title-holder {
       display: flex;
       align-items: center;
       margin-bottom: 2rem;
+      .jf-content__title {
+        margin: 0;
+        margin-right: 1rem;
+      }
 
     }
     &__title {
       font-weight: bold;
-      margin: 0;
-      margin-right: 1rem;
+      margin: 0 0 1rem;
+      &--comment {
+        margin-top: 1rem;
+      }
     }
     &__subtitle {
       font-size: .875rem;
@@ -30,7 +52,23 @@
       font-weight: normal;
       margin: 0;
       margin-top: .5rem;
-
+    }
+    &__metadata {
+      &--primary {
+        font-weight: bold;
+      }
+      &--secondary {
+        color: var(--gray);
+      }
+    }
+    &__tag-holder {
+      margin-top: 1rem;
+      .badge {
+        font-size: .875rem;
+        &:first-of-type {
+          margin-left: 0;
+        }
+      }
     }
   }
   &-sidebar {
@@ -61,20 +99,20 @@
     }
     .jf-add-log {
       .modal-header, .modal-footer{
-        background-color: var(--black);
-        border-color: var(--black);
+        background-color: var(--gray);
+        border-color: var(--dark-gray);
       }
       .modal-body {
-        background-color: var(--dark-gray);
-        border-color: var(--black);
+        background-color: var(--gray);
+        border-color: var(--dark-gray);
         input, select, textarea, .custom-file-label {
-          background-color: var(--gray);
-          color: var(--light);
-          border-color: var(--dark-gray);
+          background-color: var(--light-gray);
+          color: var(--dark);
+          border-color: var(--gray);
         }
       }
       &__body {
-        background-color: var(--black);
+        background-color: var(--dark);
       }
     }
   }
