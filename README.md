@@ -141,7 +141,8 @@ Features working:
 https://cern.netlify.com/#/logs
 
 ## To-do
-- [ ] Log / run detail pages
+- [x] Log / run detail pages
+- [x] Adding / showing comments
 - [ ] Runs list page
 - [ ] Welcome / account screen
 - [ ] Input sanitization

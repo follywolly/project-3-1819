@@ -46,13 +46,13 @@
             </ul>
           </b-col>
         </b-row>
-        <b-row v-if="log.comments && log.comments.length > 0">
+        <b-row>
           <b-col>
             <div class="jf-content__comments-header">
-              <h3 class="jf-content__body-title">Comments</h3>
+              <h3 class="jf-content__body-title">Comments <span class="jf-content__subtitle"> - {{comments.length}} comments</span></h3>
               <b-button class="jf-add-log__button jf-btn" variant="primary" v-b-modal="'jf-add-log'" v-if="log.tags">{{log.tags[0] === 'comment' ? 'Add comment' : 'Add log'}}</b-button>
             </div>
-            <transition-group name="flip-list" class="list-unstyled" tag="ul">
+            <transition-group name="flip-list" class="list-unstyled" tag="ul" v-if="log.comments && log.comments.length > 0">
               <LogCard
               v-for="(comment,index) in comments"
               :key="`comment-${comment.id}`"
@@ -64,6 +64,9 @@
               :tags="comment.tags"
               />
             </transition-group>
+            <div v-else>
+              This log has no comments.
+            </div>
           </b-col>
         </b-row>
       </b-container>
