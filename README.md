@@ -138,11 +138,12 @@ Features working:
 - Browsing logs
 
 #### URL
-https://cern.netlify.com/#/logs
+https://cern.netlify.com/#/logs d
 
 ## To-do
 - [x] Log / run detail pages
 - [x] Adding / showing comments
+- [ ] Show runs log is based on
 - [ ] Runs list page
 - [ ] Welcome / account screen
 - [ ] Input sanitization

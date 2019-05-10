@@ -85,6 +85,9 @@
       padding: 2rem;
       margin-bottom: 4rem;
     }
+    &__log-files {
+      margin-bottom: 4rem;
+    }
     &__log-file {
       max-width: 25rem;
       display: flex;
@@ -137,6 +140,12 @@
     color: var(--light);
     &__header {
       background-color: var(--dark);
+    }
+    &__log-description {
+      background-color: var(--black);
+    }
+    &__log-file {
+      background-color: var(--black);
     }
     .jf-card {
       background: var(--black);
