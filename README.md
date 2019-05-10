@@ -20,7 +20,7 @@ A proposed redesign of parts of the UI and UX for a bookkeeping program called J
 [License](#license)
 
 ## Demo
-[link to be added]
+A live prototype can be viewed on [netlify](https://cern.netlify.com/#/logs).
 
 ## Install
 ```bash
@@ -36,9 +36,6 @@ npm install
 ## Start live server on localhost:8080
 npm run serve
 ```
-
-## Concept
-[to be written]
 
 ## Design
 I made a total of 11 different screens for the revision of the user interface, seen below.
@@ -141,7 +138,7 @@ Features working:
 - Browsing logs
 
 #### URL
-[to be added]
+https://cern.netlify.com/#/logs
 
 ## To-do
 - [ ] Log / run detail pages
