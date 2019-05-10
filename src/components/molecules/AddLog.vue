@@ -106,19 +106,18 @@ export default {
       return val < 10 ? '0' + val : val
     },
     onSubmit() {
-      // format inputted title to be capitalized only
       const temptitle = this.log.title.toLowerCase()
-      const title = temptitle.substring(0,1).toUpperCase() + temptitle.slice(1)
-
-      // get current client user
-      const author = this.$store.getters.username
       const today = new Date()
 
-      // format date & time
+      const id = String(this.log_id)
+      const title = temptitle.substring(0,1).toUpperCase() + temptitle.slice(1)
+      const author = this.$store.getters.username
       const date = `${this.format(today.getDate())}/${this.format(today.getMonth() + 1)}/${today.getFullYear()}`
       const time = `${this.format(today.getHours())}:${this.format(today.getMinutes())}`
+      const files = this.log.files
+      const description = this.log.description
+      const tags = this.log.tags
 
-      const id = String(this.log_id)
       this.$nextTick(() => {
         this.$store.commit('increment_id')
         this.$refs.modal.hide()
@@ -129,7 +128,7 @@ export default {
 
       setTimeout(() => {
         // create a new log
-        this.$store.commit('add_log', {...this.log, title, author, date, time, id})
+        this.$store.commit('add_log', {id, title, author, date, time, files, description, tags})
 
         this.makeToast('Added log to database!', 'Process', 'success')
       }, 3300)

@@ -24,6 +24,9 @@
     }
     &__header {
       background-color: var(--white);
+      .jf-add-log__button {
+        white-space: nowrap;
+      }
     }
     &__header-holder {
       display: flex;
@@ -69,6 +72,41 @@
           margin-left: 0;
         }
       }
+    }
+    &__log-description, &__log-file {
+      max-width: 40rem;
+      background-color: var(--white);
+      border-radius: .25em;
+      margin-top: 1rem;
+      padding: 2rem;
+      margin-bottom: 4rem;
+    }
+    &__log-file {
+      max-width: 25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      padding: 0;
+      margin-bottom: 1rem;
+      span {
+        margin-right: .75em;
+        height: 100%;
+        padding: .75em;
+        white-space: nowrap;
+      }
+      &__type {
+        border-radius: .25em 0 0 .25em;
+        background-color: var(--primary);
+        color: var(--white);
+      }
+      &__name {
+        font-weight: bold;
+      }
+      &__size {
+        margin-right: 0;
+        color: var(--gray);
+      }
+
     }
   }
   &-sidebar {
