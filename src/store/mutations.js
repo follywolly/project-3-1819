@@ -7,6 +7,10 @@ const mutations = {
   },
   increment_id(state) {
     state.current_log_id++
+  },
+  update_log(state,payload) {
+    const index = state.logs.findIndex(log => log.id === payload.id)
+    state.logs[index] = payload.update
   }
 }
 

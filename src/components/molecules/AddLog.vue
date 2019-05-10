@@ -71,7 +71,7 @@
 <script>
 export default {
   name: 'addlog',
-  props: ['modal'],
+  props: ['modal', 'sourceID'],
   data() {
     return {
       template: {
@@ -117,6 +117,7 @@ export default {
       const files = this.log.files
       const description = this.log.description
       const tags = this.log.tags
+      const comments = []
 
       this.$nextTick(() => {
         this.$store.commit('increment_id')
@@ -128,7 +129,12 @@ export default {
 
       setTimeout(() => {
         // create a new log
-        this.$store.commit('add_log', {id, title, author, date, time, files, description, tags})
+        this.$store.commit('add_log', {id, title, author, date, time, files, description, tags, comments})
+        if (this.sourceID) {
+          const source = this.$store.getters.logs(this.sourceID)
+          source.comments.push(id)
+          this.$store.commit('update_log', {id: this.sourceID, update: source})
+        }
 
         this.makeToast('Added log to database!', 'Process', 'success')
       }, 3300)

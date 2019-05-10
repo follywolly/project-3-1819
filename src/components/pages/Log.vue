@@ -24,7 +24,7 @@
             </div>
             <div>
               <b-button class="jf-add-log__button jf-btn" variant="primary" v-b-modal="'jf-add-log'" v-if="log.tags">{{log.tags[0] === 'comment' ? 'Add comment' : 'Add log'}}</b-button>
-              <AddLog modal="jf-add-log"></AddLog>
+              <AddLog modal="jf-add-log" :sourceID="log.id"></AddLog>
             </div>
           </b-col>
         </b-row>
@@ -34,16 +34,36 @@
       <b-container class="jf-content__inner-container" fluid>
         <b-row>
           <b-col class="col-7" v-if="log.description">
-            <h3>Description</h3>
+            <h3 class="jf-content__body-title">Description</h3>
             <div class="jf-content__log-description">
               {{ log.description }}
             </div>
           </b-col>
           <b-col v-if="log.files && log.files.length > 0" class="col-5">
-            <h3>Files</h3>
+            <h3 class="jf-content__body-title">Files</h3>
             <ul class="jf-content__log-files list-unstyled">
               <li v-for="file in log.files" :key="`file-${file.name}`" class="jf-content__log-file"><span class="jf-content__log-file__type">{{file.type}}</span><span class="jf-content__log-file__name">{{file.name}}</span><span class="jf-content__log-file__size">{{ filesize(file) }}</span></li>
             </ul>
+          </b-col>
+        </b-row>
+        <b-row v-if="log.comments && log.comments.length > 0">
+          <b-col>
+            <div class="jf-content__comments-header">
+              <h3 class="jf-content__body-title">Comments</h3>
+              <b-button class="jf-add-log__button jf-btn" variant="primary" v-b-modal="'jf-add-log'" v-if="log.tags">{{log.tags[0] === 'comment' ? 'Add comment' : 'Add log'}}</b-button>
+            </div>
+            <transition-group name="flip-list" class="list-unstyled" tag="ul">
+              <LogCard
+              v-for="(comment,index) in comments"
+              :key="`comment-${comment.id}`"
+              :title="comment.title"
+              :id="comment.id"
+              :time="comment.time"
+              :date="comment.date"
+              :author="comment.author"
+              :tags="comment.tags"
+              />
+            </transition-group>
           </b-col>
         </b-row>
       </b-container>
@@ -53,14 +73,19 @@
 <script>
 import Tag from '../atoms/Tag.vue'
 import AddLog from '../molecules/AddLog.vue'
+import LogCard from '../molecules/LogCard.vue'
 export default {
   components: {
     Tag,
-    AddLog
+    AddLog,
+    LogCard
   },
   computed: {
     log() {
       return this.$store.getters.logs(this.$route.params.id)
+    },
+    comments() {
+      return this.$store.getters.logs().filter(log => this.log.comments.includes(log.id))
     }
   },
   methods: {
